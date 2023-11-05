@@ -1,0 +1,1 @@
+// Two types Stack(Primitive datatype) and Heap Memory (Non-Primitive)
