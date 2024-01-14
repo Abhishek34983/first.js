@@ -1,12 +1,19 @@
-function filterStudents (students,passingGrade){
-    let result = students.find( students => students.grade>=passingGrade);
-    return result.name;
+
+
+function getTopStudents (students,N){
+    if (Array.isArray(students) || typeof N!=='number' ){
+        const sortedStudents = students.sort((a,b) => b.grade-a.grade);
+    const topNStudents = sortedStudents.slice(0,N);
+    return addAllStudents(topNStudents);}
+    else{
+        return name_result= [];
 };
 
-var students = [
-    { name: 'Alice', age: 18, grade: 85 },
-    { name: 'Bob', age: 19, grade: 92 },
-    { name: 'Charlie', age: 17, grade: 78 },
-    ];
+function addAllStudents (students){
+    return students.map(students => `name: ${students.name}`)
+}
+}
 
-    console.log(filterStudents(students,90));
+var students = [{name: 'Alice', grade: 85},{name: 'Bob', grade: 92}];
+
+    console.log(getTopStudents(students,100)); 
