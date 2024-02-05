@@ -11,14 +11,26 @@ function mostFrequent(text) {
          map1.set(a,1);
      }
  }
- console.log(map1);
+ //console.log(map1);
     let p = Math.max(...map1.values());
     let num = [...map1].find(([key, value]) => p === value)[0];
-    if (map1.get(num)==map1.get(A)){
-        return A+''+map1.get(A);
+    let freq = 0;
+    let maxChar = 0;
+    for(let [key,value] of map1){
+          if(value>freq){
+            freq = value;
+            maxChar = key;
+          }
+          else if (value == freq){
+            if(key.charCodeAt(0)<maxChar.charCodeAt(0)){
+                maxChar = key
+                freq = value
+                }
+            }
+          }
+          return [maxChar,freq];
     }
-    return num +' '+p;
-    };
+
 
 let arr = 'aaaAAA';
 
